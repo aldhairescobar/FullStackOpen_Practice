@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const App = (props) => {
-  const {counter} = props
+const App = () => {
+  const [ counter, setCounter ] = useState(0)
+
+  /* const handleClick = () => {
+    console.log('Clicked')
+  } */
+
   return (
-    <div>{counter}</div>
+    <>
+      <div>{counter}</div>
+      <button 
+      onClick={() => setCounter(counter + 1)}
+      >
+        plus
+      </button>
+      <button onClick={() => setCounter(0)}>
+        zero
+      </button>
+    </>
   )
 }
 
