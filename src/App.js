@@ -17,20 +17,14 @@ const App = () => {
   )
 }
 
-const Display = (props) => {
-  return (
-    <div>{props.counter}</div>
-  )
-}
+const Display = ({ counter }) => <div>{counter}</div>
 
-const Button = (props) => {
-  return (
+const Button = ({ onClick, text }) => (
     <button 
-        onClick={props.onClick}
+        onClick={onClick}
       >
-        {props.text}
-      </button>
-  )
-}
+        {text}
+    </button>
+)
 
 export default App
