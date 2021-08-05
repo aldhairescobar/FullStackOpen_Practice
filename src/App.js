@@ -1,24 +1,27 @@
 import React, { useState } from 'react'
 
-const Button = (props) => (
-  <button onClick={props.handleClick}>
-    {props.text}
-  </button>
-)
-
 const App = () => {
-  const [ value, setValue ] = useState(10)
-
-  const setToValue = (newValue) => () => {
-    setValue(newValue)
-  } 
-
+  // save clicks of each button to its own state
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
+  
   return (
     <>
-      {value}
-      <Button handleClick={setToValue(1000)} text="thousand"/>
-      <Button handleClick={setToValue(0)} text="reset"/>
-      <Button handleClick={setToValue(value + 1)} text="increment"/>
+      <h1>Give feedback</h1>
+      <button 
+        onClick={() => setGood(good + 1)}>good</button>
+      <button 
+        onClick={() => setNeutral(neutral + 1)}>neutral</button>
+      <button 
+        onClick={() => setBad(bad + 1)}>bad</button>
+      <h2>Statistics</h2>
+      <p>good {good}</p>
+      <p>neutral {neutral}</p>
+      <p>bad {bad}</p>
+      <p>all {good + neutral + bad}</p>
+      <p>average </p>
+      <p>positive {good/(good + neutral + bad)*100}%</p>
     </>
   )
 }
